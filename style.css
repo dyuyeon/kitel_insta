@@ -7,10 +7,6 @@
     font-display: swap;
 }
 
-body, html {
-    font-synthesis: none;
-  }
-
 body {
     font-family: sans-serif;
     display: flex;
