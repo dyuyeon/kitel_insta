@@ -47,7 +47,7 @@ body {
 }
 
 #image-canvas {
-    max-width: 100%;
+    width: 337px;
     height: auto;
 }
 
