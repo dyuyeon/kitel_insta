@@ -12,7 +12,7 @@ body, html {
   }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Electrical Safety Bold', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,7 +54,6 @@ body {
 }
 
 .canvas-container {
-    font-family: 'Electrical Safety Bold';
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
