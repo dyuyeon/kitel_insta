@@ -4,6 +4,8 @@ const lineHeightControl = document.getElementById('line-height');
 const canvas = document.getElementById('image-canvas');
 const downloadBtn = document.getElementById('download-btn');
 const ctx = canvas.getContext('2d');
+let text_one_line = '';
+let filename = '키텔인스타표지';
 
 let uploadedImage = null;
 const img = new Image();
@@ -53,10 +55,14 @@ function drawCanvas() {
 
     const lines = text.split('\n'); // 줄바꿈 처리
 
+    text_one_line = '';
     lines.forEach((line, index) => {
         const yPos = centerY + (index - (lines.length - 1) / 2) * fontSize * lineHeight;
         ctx.fillText(line, centerX, yPos);
+        text_one_line = text_one_line + ' ' + line;
     });
+
+    filename = `키텔인스타표지_${text_one_line}.png`;
 }
 
 // 다운로드 버튼 기능
@@ -69,7 +75,7 @@ downloadBtn.addEventListener('click', () => {
     const imageURL = canvas.toDataURL('image/png');
     const link = document.createElement('a');
     link.href = imageURL;
-    link.download = 'edited_image.png';
+    link.download = filename;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
