@@ -44,7 +44,7 @@ function drawCanvas() {
     const fontSize = fontSizeControl.value;
     const lineHeight = lineHeightControl.value;
 
-    ctx.font = `${fontSize}px Electrical Safety Bold`; // 폰트 스타일 설정
+    ctx.font = `${fontSize}px Electrical-Safety-Bold`; // 폰트 스타일 설정
     ctx.fillStyle = 'white'; // 텍스트 색상
     ctx.textAlign = 'center'; // 가로 정렬
     ctx.textBaseline = 'middle'; // 세로 정렬
@@ -64,6 +64,11 @@ function drawCanvas() {
 
     filename = `키텔인스타표지_${text_one_line}.png`;
 }
+
+// 폰트가 로드되면 캔버스 그리기 함수를 호출
+document.fonts.ready.then(() => {
+    drawCanvas();
+});
 
 // 다운로드 버튼 기능
 downloadBtn.addEventListener('click', () => {
