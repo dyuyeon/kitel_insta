@@ -1,2 +1,41 @@
-<h1>Kitel Instagram Front Page Generator</h1>
-<p style="color: blue;">반갑습니다!</p>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 텍스트 편집기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>이미지에 텍스트 추가하기</h1>
+
+    <div class="controls">
+        <label for="image-upload">이미지 업로드</label>
+        <input type="file" id="image-upload" accept="image/*">
+        
+        <label for="text-input">텍스트 입력</label>
+        <textarea id="text-input" placeholder="텍스트를 입력하세요."></textarea>
+        
+        <div class="settings">
+            <label for="font-size">폰트 크기:</label>
+            <input type="range" id="font-size" min="10" max="100" value="40">
+            <span id="font-size-value">40px</span>
+            
+            <label for="letter-spacing">자간:</label>
+            <input type="range" id="letter-spacing" min="-10" max="20" value="0">
+            <span id="letter-spacing-value">0px</span>
+
+            <label for="line-height">행간:</label>
+            <input type="range" id="line-height" min="1" max="2.5" step="0.1" value="1.5">
+            <span id="line-height-value">1.5</span>
+        </div>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="image-canvas"></canvas>
+    </div>
+
+    <button id="download-btn" disabled>다운로드</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
