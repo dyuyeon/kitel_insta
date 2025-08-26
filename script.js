@@ -44,7 +44,7 @@ function drawCanvas() {
     const fontSize = fontSizeControl.value;
     const lineHeight = lineHeightControl.value;
 
-    ctx.font = `${fontSize}px Electrical-Safety-Bold`; // 폰트 스타일 설정
+    ctx.font = `${fontSize}px Electrical Safety Bold`; // 폰트 스타일 설정
     ctx.fillStyle = 'white'; // 텍스트 색상
     ctx.textAlign = 'center'; // 가로 정렬
     ctx.textBaseline = 'middle'; // 세로 정렬
