@@ -8,26 +8,36 @@ let text_one_line = '';
 let filename = '키텔인스타표지';
 
 let uploadedImage = null;
-const img = new Image();
-img.onload = () => {
-    uploadedImage = img;
-    canvas.width = img.width;
-    canvas.height = img.height;
-    drawCanvas();
-    downloadBtn.disabled = false;
-};
-img.src = 'null_front_page.png'
+    const img = new Image();
+    img.onload = () => {
+        uploadedImage = img;
+        canvas.width = img.width;
+        canvas.height = img.height;
+        document.fonts.ready.then(() => {
+            drawCanvas();
+        });
+        downloadBtn.disabled = false;
+    };
+    img.src = 'null_front_page.png'
 
-// 설정 변경 시 캔버스 다시 그리기
-textInput.addEventListener('input', drawCanvas);
-fontSizeControl.addEventListener('input', () => {
-    document.getElementById('font-size-value').textContent = `${fontSizeControl.value}px`;
-    drawCanvas();
-});
-lineHeightControl.addEventListener('input', () => {
-    document.getElementById('line-height-value').textContent = lineHeightControl.value;
-    drawCanvas();
-});
+    // 설정 변경 시 캔버스 다시 그리기
+    textInput.addEventListener('input', drawCanvas);
+    fontSizeControl.addEventListener('input', () => {
+        document.getElementById('font-size-value').textContent = `${fontSizeControl.value}px`;
+        document.fonts.ready.then(() => {
+            drawCanvas();
+        });
+    });
+    lineHeightControl.addEventListener('input', () => {
+        document.getElementById('line-height-value').textContent = lineHeightControl.value;
+        document.fonts.ready.then(() => {
+            drawCanvas();
+        });
+    });
+
+// 폰트가 로드되면 캔버스 그리기 함수를 호출
+
+
 
 // 캔버스에 이미지와 텍스트 그리기
 function drawCanvas() {
@@ -65,10 +75,7 @@ function drawCanvas() {
     filename = `키텔인스타표지_${text_one_line}.png`;
 }
 
-// 폰트가 로드되면 캔버스 그리기 함수를 호출
-document.fonts.ready.then(() => {
-    drawCanvas();
-});
+
 
 // 다운로드 버튼 기능
 downloadBtn.addEventListener('click', () => {
